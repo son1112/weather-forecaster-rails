@@ -23,7 +23,7 @@ group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
   gem "pry-byebug"
   gem "rspec-rails"
-  # gem "rubocop"
+  gem "rubocop", require: false
   gem "webmock"
 end
 

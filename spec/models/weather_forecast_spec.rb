@@ -35,8 +35,12 @@ RSpec.describe WeatherForecast do
   let(:forecast_response) do
     instance_double(
       OpenMeteo::Entities::Forecast,
-      current: current_forecast
+      current: current_forecast,
+      to_json: weather_data_json
     )
+  end
+  let(:weather_data_json) do
+    {"current":{"item":{"raw_json":{"time":"2024-07-26T21:45","interval":900,"weather_code":0,"temperature_2m":34.4},"attributes":["time","interval","weather_code","temperature_2m"],"time":"2024-07-26T21:45"},"units":{"raw_json_units":{"time":"iso8601","interval":"seconds","weather_code":"wmo code","temperature_2m":"°C"},"attributes":["time","interval","weather_code","temperature_2m"],"time":"iso8601"},"raw_json_current":{"time":"2024-07-26T21:45","interval":900,"weather_code":0,"temperature_2m":34.4},"raw_json_current_units":{"time":"iso8601","interval":"seconds","weather_code":"wmo code","temperature_2m":"°C"}}}.to_json
   end
   let(:current_forecast) do
     instance_double(
@@ -50,7 +54,14 @@ RSpec.describe WeatherForecast do
       temperature_2m: celcius
     )
   end
+  let(:cached_weather_data) do
+
+  end
   let(:celcius) { 32.2 }
+
+  before(:all) do
+    Rails.cache.clear
+  end
 
   before do
     allow(OpenCage::Geocoder).to receive(:new).and_return(geocoder)

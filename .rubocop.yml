@@ -1,0 +1,6 @@
+Style/StringLiterals:
+  Enabled: false
+  EnforcedStyle: double_quotes
+  SupportedStyles:
+    - single_quotes
+    - double_quotes
