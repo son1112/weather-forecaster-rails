@@ -1,18 +1,13 @@
 class WeatherForecastsController < ApplicationController
-  def create
-    # address params
-    weather_forecast = WeatherForecast.new(forecast_params)
-    # geocoder
+  def forecast
+    @forecast = WeatherForecast.new(forecast_params)
 
-    weather_forecast
-
-    # weather api
-    # render
+    respond_to :html
   end
 
   private
 
   def forecast_params
-    params.permit(:street, :city, :state, :country, :zipcode)
+    params.permit(:address)
   end
 end

@@ -1,0 +1,60 @@
+* Weather Forcaster
+
+  This is a basic Ruby on Rails application that provides an ~address~ input
+  and displays the current temperature for that location.
+
+** Install
+
+   : bundle install
+
+*** Dependencies
+
+    - Opencage Data
+
+      https://github.com/OpenCageData/ruby-opencage-geocoder
+
+      - Create a free opencage account and an API key
+      - Set the api key in Rails credentials
+
+        : rails credentials:edit
+
+        - Add the following line with your API key for the value
+
+          : opencage_api_key: yourapikeystringhere
+
+    - Redis
+
+      - Install
+
+        https://redis.io/downloads/
+
+      - Start the redis server
+
+        : redis-server
+
+** Use
+
+   - Start the server
+
+     : rails s
+
+   - Visit https://localhost:3000
+
+   - Type an address in the provided text input
+   - Click the 'Submit' button
+
+   The current temperature in degress farenheit for the provided address will be displayed.
+
+** Test
+
+   : rspec
+
+*** Lint
+
+    : rubocop
+
+** Roadmap
+
+   - Round temperature float to 2 decimal places
+   - Forecast the temperature for future days
+   - Customize temperature units (ie. Farenheit, Celcius, etc)

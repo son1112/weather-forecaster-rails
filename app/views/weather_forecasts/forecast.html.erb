@@ -1,0 +1,13 @@
+<!--  input form -->
+
+<% if address.present? %>
+  <h1><%= current_temperature %></h1>
+<% else %>
+  <h2>Please input an address</h2>
+<% end %>
+
+<%= form_with method: :get do |form| %>
+  <%= form.label :address, "Address, City, State, or Zipcode" %>
+  <%= form.text_field :address %>
+  <%= form.submit "Submit" %>
+<% end %>
