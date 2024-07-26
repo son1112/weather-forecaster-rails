@@ -58,3 +58,5 @@
    - Round temperature float to 2 decimal places
    - Forecast the temperature for future days
    - Customize temperature units (ie. Farenheit, Celcius, etc)
+   - Improve testing
+   - Tackle linting todos
