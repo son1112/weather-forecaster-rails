@@ -49,9 +49,17 @@
 
    : rspec
 
-*** Lint
+** Lint
 
-    : rubocop
+   : rubocop
+
+** Documentation
+
+   Documentation can be found by opening [[./doc/index.html]] in a browser
+
+   - Reference
+     https://github.com/lsegal/yard
+     https://yardoc.org/
 
 ** Roadmap
 
@@ -60,3 +68,5 @@
    - Customize temperature units (ie. Farenheit, Celcius, etc)
    - Improve testing
    - Tackle linting todos
+   - UX/UI improvements
+   - Improve yardoc annotations/documentation

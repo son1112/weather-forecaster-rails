@@ -25,6 +25,8 @@ group :development, :test do
   gem "rspec-rails"
   gem "rubocop", require: false
   gem "webmock"
+  gem "yard"
+  gem "org-ruby"
 end
 
 group :development do
