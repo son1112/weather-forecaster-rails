@@ -6,4 +6,8 @@ module WeatherForecastsHelper
   def address
     @forecast.address
   end
+
+  def cached?
+    @forecast.cached
+  end
 end

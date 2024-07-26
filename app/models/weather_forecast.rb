@@ -5,7 +5,7 @@ require "open_meteo"
 class WeatherForecast
   include ActiveModel::Model
 
-  attr_accessor :address
+  attr_accessor :address, :cached
 
   OPENCAGE_API_KEY = Rails.application.credentials.dig(:opencage_api_key)
 
@@ -28,7 +28,14 @@ class WeatherForecast
   private
 
   def forecast
-    @weather_data = cached_weather_data || fetch_weather_data
+    @weather_data = if cached_weather_data.present?
+                      self.cached = true
+                      cached_weather_data
+                    else
+                      self.cached = false
+                      fetch_weather_data
+                    end
+    # @weather_data = cached_weather_data || fetch_weather_data
   end
 
   def cached_weather_data

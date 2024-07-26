@@ -1,7 +1,10 @@
 <!--  input form -->
 
 <% if address.present? %>
-  <h1><%= current_temperature %></h1>
+  <h1><%= current_temperature %> degrees Farenheit</h1>
+  <% if cached? %>
+    <h2>Retrieved from cached value</h2>
+  <% end %>
 <% else %>
   <h2>Please input an address</h2>
 <% end %>
